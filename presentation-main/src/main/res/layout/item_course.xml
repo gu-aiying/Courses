@@ -67,9 +67,9 @@
         app:layout_constraintBottom_toBottomOf="@+id/cardView"
         app:layout_constraintStart_toStartOf="@+id/cardView" />
 
-    <!-- Start Date -->
+    <!-- Publication Date -->
     <TextView
-        android:id="@+id/courseStartDate"
+        android:id="@+id/coursePublicationDate"
         style="@style/RoundedButtonDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

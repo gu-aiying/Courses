@@ -21,6 +21,21 @@ class CourseRepositoryImpl @Inject constructor(
     private val favoritesDao: FavoritesDao,
 ) : CourseRepository {
 
+    val monthsMap = mapOf(
+        1 to "Января",
+        2 to "Февраля",
+        3 to "Марта",
+        4 to "Апреля",
+        5 to "Мая",
+        6 to "Июня",
+        7 to "Июля",
+        8 to "Августа",
+        9 to "Сентября",
+        10 to "Октября",
+        11 to "Ноября",
+        12 to "Декабря"
+    )
+
     @OptIn(ExperimentalCoroutinesApi::class)
     override suspend fun getCourses(): Flow<List<Course>> =
         combine(
@@ -46,4 +61,6 @@ class CourseRepositoryImpl @Inject constructor(
     override fun getFavoriteCourses(): Flow<List<Course>> {
         return favoritesDao.getAllFavorites().toCourses()
     }
+
+
 }

@@ -22,7 +22,7 @@ class FavoritesAdapter(
                 courseTitle.text = course.title
                 courseDescription.text = course.description
                 coursePrice.text = course.price
-                courseStartDate.text = course.startDate
+                coursePublicationDate.text = course.publishDate
 
                 ratingView.text = course.rating.toString()
 

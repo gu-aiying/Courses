@@ -68,7 +68,7 @@
 
     <!-- Start Date -->
     <TextView
-        android:id="@+id/courseStartDate"
+        android:id="@+id/coursePublicationDate"
         style="@style/RoundedButtonDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

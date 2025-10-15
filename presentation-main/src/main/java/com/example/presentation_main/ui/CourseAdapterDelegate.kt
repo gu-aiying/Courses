@@ -43,8 +43,9 @@ class CourseAdapterDelegate(
             with(binding) {
                 courseTitle.text = course.title
                 courseDescription.text = course.description
-                coursePrice.text = course.price
-                courseStartDate.text = course.startDate
+                val price = course.price + " ₽"
+                coursePrice.text = price
+                coursePublicationDate.text = course.publishDate
 
                 ratingView.text = course.rating.toString()
 

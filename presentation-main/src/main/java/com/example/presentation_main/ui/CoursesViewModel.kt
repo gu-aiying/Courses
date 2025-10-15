@@ -4,13 +4,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.models.Course
 import com.example.domain.usecases.GetCoursesUseCase
-import com.example.domain.usecases.ToggleFavoriteUseCase
 import com.example.domain.usecases.SortCoursesUseCase
+import com.example.domain.usecases.ToggleFavoriteUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -26,6 +25,7 @@ class CoursesViewModel @Inject constructor(
     val state: StateFlow<CoursesState> = _state.asStateFlow()
 
     private var isSortedByPublishDate = false
+    private lateinit var originalCourses: List<Course>
 
     init {
         loadCourses()
@@ -37,7 +37,8 @@ class CoursesViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 getCoursesUseCase().collect { courses ->
-                    updateCoursesState(courses)
+                    originalCourses = courses
+                    updateCoursesState()
                 }
             } catch (e: Exception) {
                 _state.value = CoursesState.Error("Не удалось загрузить курсы: ${e.message}")
@@ -57,18 +58,14 @@ class CoursesViewModel @Inject constructor(
 
     fun toggleSorting() {
         isSortedByPublishDate = !isSortedByPublishDate
-        val currentCourses = when (val currentState = _state.value) {
-            is CoursesState.Success -> currentState.courses
-            else -> emptyList()
-        }
-        updateCoursesState(currentCourses)
+        updateCoursesState()
     }
 
-    private fun updateCoursesState(courses: List<Course>) {
+    private fun updateCoursesState() {
         val coursesToShow = if (isSortedByPublishDate) {
-            sortCoursesUseCase(courses, true)
+            sortCoursesUseCase(originalCourses)
         } else {
-            courses
+            originalCourses
         }
 
         _state.update {

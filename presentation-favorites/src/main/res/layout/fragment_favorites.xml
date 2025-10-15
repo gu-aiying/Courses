@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="@dimen/spacing_m">
+    android:paddingHorizontal="@dimen/spacing_m"
+    android:paddingTop="@dimen/spacing_m">
 
     <!-- App Bar -->
     <TextView

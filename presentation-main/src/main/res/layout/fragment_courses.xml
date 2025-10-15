@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/spacing_m">
+    android:paddingHorizontal="@dimen/spacing_m"
+    android:paddingTop="@dimen/spacing_m">
 
     <!-- Search and Filter Section -->
     <LinearLayout
@@ -61,13 +62,14 @@
     <!-- Courses List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/coursesRecyclerView"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:paddingTop="@dimen/spacing_s"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sortButton"
-        tools:listitem="@layout/item_course"/>
+        tools:listitem="@layout/item_course" />
 
     <!-- Loading State -->
     <ProgressBar

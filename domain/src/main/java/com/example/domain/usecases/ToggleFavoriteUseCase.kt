@@ -1,12 +1,13 @@
 package com.example.domain.usecases
 
+import com.example.domain.models.Course
 import com.example.domain.repository.CourseRepository
 import javax.inject.Inject
 
-class ToggleFavoriteUseCase@Inject constructor(
+class ToggleFavoriteUseCase  @Inject constructor(
     private val repository: CourseRepository
 ) {
-    suspend operator fun invoke(courseId: String) {
-        repository.toggleFavorite(courseId)
+    suspend operator fun invoke(course: Course) {
+        repository.toggleFavorite(course)
     }
 }

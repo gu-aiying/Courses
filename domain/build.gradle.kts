@@ -13,4 +13,7 @@ kotlin {
 }
 dependencies {
     implementation(libs.kotlinx.coroutines.core)
+
+    // ТОЛЬКО JSR-330 аннотации, без Dagger
+    compileOnly(libs.javax.inject)
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="spacing_xxs">4dp</dimen>
+    <dimen name="spacing_xs">6dp</dimen>
+    <dimen name="spacing_s">10dp</dimen>
+    <dimen name="spacing_m">24dp</dimen>
+    <dimen name="spacing_xl">100dp</dimen>
+    <dimen name="icon_s">28dp</dimen>
+    <dimen name="icon_m">56dp</dimen>
+    <dimen name="cardCorner">16dp</dimen>
+</resources>

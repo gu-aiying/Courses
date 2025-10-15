@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Стиль для текста заголовка-->
+    <style name="Headline">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textFontWeight">400</item>
+    </style>
+
+    <!-- Стиль для текста заголовка второй степени-->
+    <style name="SecondHeadline" parent="Headline">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textFontWeight">500</item>
+    </style>
+
+    <!-- Стиль для текста -->
+    <style name="SmallText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingVertical">4dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textFontWeight">600</item>
+    </style>
+
+    <!-- Стиль для описания курса -->
+    <style name="TextCourse" parent="SmallText">
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:lineHeight">16sp</item>
+    </style>
+
+    <style name="MediumText" parent="SmallText">
+        <item name="android:textColor">@color/green_text</item>
+        <item name="android:paddingVertical">@dimen/spacing_s</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textFontWeight">500</item>
+    </style>
+
+    <!-- Стиль для поля ввода -->
+    <style name="Widget.App.TextInputLayout.RoundedFilledBox"
+        parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/spacing_s</item>
+        <item name="boxCornerRadiusTopStart">30dp</item>
+        <item name="boxCornerRadiusTopEnd">30dp</item>
+        <item name="boxCornerRadiusBottomStart">30dp</item>
+        <item name="boxCornerRadiusBottomEnd">30dp</item>
+        <item name="boxStrokeWidth">0dp</item>
+
+    </style>
+
+    <!-- Стиль для поиска -->
+    <style name="Search"
+        parent="Widget.App.TextInputLayout.RoundedFilledBox">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="boxCornerRadiusTopStart">30dp</item>
+        <item name="boxCornerRadiusTopEnd">30dp</item>
+        <item name="boxCornerRadiusBottomStart">30dp</item>
+        <item name="boxCornerRadiusBottomEnd">30dp</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="startIconDrawable">@drawable/ic_search</item>
+        <item name="boxBackgroundColor">?attr/boxBackgroundColor</item>
+    </style>
+
+    <!-- Стиль для текста заметки-->
+    <style name="MessageText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">@dimen/spacing_xl</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:textColor">@color/green_text</item>
+    </style>
+
+    <style name="RoundedButton">
+        <item name="android:layout_width">@dimen/icon_m</item>
+        <item name="android:layout_height">@dimen/icon_m</item>
+        <item name="android:background">@drawable/rounded_background</item>
+    </style>
+
+    <style name="RoundedButtonSmall">
+        <item name="android:layout_width">@dimen/icon_s</item>
+        <item name="android:layout_height">@dimen/icon_s</item>
+        <item name="android:layout_margin">@dimen/spacing_xs</item>
+        <item name="android:background">@drawable/rounded_background_favorite</item>
+    </style>
+
+    <!-- rating   -->
+    <style name="RoundedButtonRating">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/spacing_xs</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:background">@drawable/rounded_background_favorite</item>
+        <item name="android:drawableStart">@drawable/ic_star</item>
+        <item name="android:drawablePadding">@dimen/spacing_s</item>
+        <item name="android:paddingHorizontal">@dimen/spacing_xs</item>
+        <item name="android:paddingVertical">@dimen/spacing_xxs</item>
+    </style>
+
+    <!-- date   -->
+    <style name="RoundedButtonDate">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/spacing_xs</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:background">@drawable/rounded_background_favorite</item>
+        <item name="android:paddingHorizontal">@dimen/spacing_xs</item>
+        <item name="android:paddingVertical">@dimen/spacing_xxs</item>
+    </style>
+
+</resources>
+
+
+
+

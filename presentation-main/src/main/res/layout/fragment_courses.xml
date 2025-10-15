@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/spacing_m">
+
+    <!-- Search and Filter Section -->
+    <LinearLayout
+        android:id="@+id/searchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Search Field -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Search">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextSearchCourse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="@dimen/spacing_s"
+                android:hint="@string/search_hint"
+                android:imeOptions="actionSearch"
+                android:maxLines="1"
+                android:paddingStart="@dimen/spacing_s" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Filter Button -->
+        <ImageButton
+            android:id="@+id/filterButton"
+            style="@style/RoundedButton"
+            android:layout_marginStart="@dimen/spacing_s"
+            android:contentDescription="@string/course_detail"
+            android:src="@drawable/ic_filter"/>
+
+    </LinearLayout>
+
+    <!-- Sort Button -->
+    <TextView
+        android:id="@+id/sortButton"
+        style="@style/MediumText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/spacing_xxs"
+        android:gravity="end|center_vertical"
+        android:text="@string/sort_by_date"
+        app:drawableEndCompat="@drawable/ic_sort"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchLayout" />
+
+    <!-- Courses List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/coursesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingTop="@dimen/spacing_s"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sortButton"
+        tools:listitem="@layout/item_course"/>
+
+    <!-- Loading State -->
+    <ProgressBar
+        android:id="@+id/loadingProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sortButton"
+        android:visibility="gone"/>
+
+    <!-- Empty State -->
+    <TextView
+        android:id="@+id/tvEmptyState"
+        style="@style/MessageText"
+        android:text="@string/no_courses"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sortButton"
+        android:visibility="gone"/>
+
+    <!-- Error State -->
+    <TextView
+        android:id="@+id/tvErrorState"
+        style="@style/MessageText"
+        android:text="@string/error_loading_courses"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sortButton"
+        android:visibility="gone"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

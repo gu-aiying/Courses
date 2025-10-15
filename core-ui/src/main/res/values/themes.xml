@@ -1,0 +1,36 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Courses" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Основные цвета -->
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorSecondary">@color/green</item>
+
+        <!-- Цвет текста на цветных фонах -->
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- Фоны и поверхности -->
+        <item name="android:windowBackground">@color/white</item>
+        <item name="colorSurface">@color/dark_surface_variant</item>
+        <item name="colorSurfaceContainer">@color/green</item>
+        <item name="colorSurfaceVariant">@color/dark_surface_variant</item>
+        <item name="boxBackgroundColor">@color/dark_surface_variant</item>
+
+        <!-- Цвет текста на фонах -->
+        <item name="colorOnBackground">@color/dark_gray</item>
+        <item name="colorOnSurface">@color/menu_gray</item>
+        <item name="colorOnSurfaceVariant">@color/menu_gray</item>
+
+        <item name="fontFamily">robot</item>
+
+        <!-- Системные бары -->
+        <item name="android:statusBarColor">@color/dark_surface</item>
+        <item name="android:navigationBarColor">@color/dark_surface_menu</item>
+
+        <!-- Дополнительные настройки -->
+        <item name="android:forceDarkAllowed">false</item>
+        <item name="android:textColorPrimary">@color/black</item>
+    </style>
+
+    <style name="Theme.Courses" parent="Base.Theme.Courses" />
+</resources>

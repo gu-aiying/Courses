@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/spacing_s"
+    android:background="@drawable/rounded_background">
+
+    <!-- Title and Favorite -->
+    <ImageButton
+        android:id="@+id/favoriteButton"
+        style="@style/RoundedButtonSmall"
+        android:contentDescription="@string/add_to_favorites"
+        android:src="@drawable/ic_favorite"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toTopOf="@+id/cardView" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="@dimen/cardCorner">
+
+        <ImageView
+            android:id="@+id/iv_course"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/course_image_view"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@drawable/course" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/courseTitle"
+        style="@style/SecondHeadline"
+        android:padding="@dimen/spacing_s"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/course_title_sample"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <!-- Description -->
+    <TextView
+        android:id="@+id/courseDescription"
+        style="@style/TextCourse"
+        android:padding="@dimen/spacing_s"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="@string/course_description_sample"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/courseTitle" />
+
+    <!-- Rating -->
+    <TextView
+        android:id="@+id/ratingView"
+        style="@style/RoundedButtonRating"
+        android:text="@string/course_rating_sample"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="@+id/cardView" />
+
+    <!-- Start Date -->
+    <TextView
+        android:id="@+id/courseStartDate"
+        style="@style/RoundedButtonDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:text="@string/course_date_sample"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView"
+        app:layout_constraintStart_toEndOf="@+id/ratingView" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_s"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/courseDescription">
+        <!-- Price -->
+        <TextView
+            android:id="@+id/coursePrice"
+            style="@style/SecondHeadline"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:text="@string/course_price_sample"/>
+
+        <!-- Detail -->
+        <TextView
+            android:id="@+id/courseDetail"
+            style="@style/MediumText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:text="@string/course_detail"
+            app:drawableEndCompat="@drawable/ic_arrow" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

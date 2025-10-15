@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Основные цвета -->
+    <color name="black">#151515</color>
+    <color name="white">#F2F2F3</color>
+    <color name="green">#12B956</color>
+    <color name="dark_gray">#24252A</color>
+    <color name="transparent_30_gray">#4D32333A</color>
+    <color name="menu_gray">#4D555E</color>
+
+    <!-- Фоны -->
+    <color name="dark_background">@color/black</color>
+    <color name="dark_surface">@color/dark_gray</color>
+    <color name="dark_surface_variant">@color/material_dynamic_neutral90</color>
+    <color name="dark_surface_menu">@color/material_dynamic_neutral70</color>
+
+    <!-- Текст -->
+    <color name="primary_text">@color/white</color>
+    <color name="green_text">@color/green</color>
+</resources>

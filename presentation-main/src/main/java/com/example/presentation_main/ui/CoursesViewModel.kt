@@ -10,6 +10,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -24,7 +25,6 @@ class CoursesViewModel @Inject constructor(
     private val _state = MutableStateFlow<CoursesState>(CoursesState.Loading)
     val state: StateFlow<CoursesState> = _state.asStateFlow()
 
-    private var allCourses: List<Course> = emptyList()
     private var isSortedByPublishDate = false
 
     init {
@@ -36,9 +36,9 @@ class CoursesViewModel @Inject constructor(
 
         viewModelScope.launch {
             try {
-                val courses = getCoursesUseCase()
-                allCourses = courses
-                updateCoursesState()
+                getCoursesUseCase().collect { courses ->
+                    updateCoursesState(courses)
+                }
             } catch (e: Exception) {
                 _state.value = CoursesState.Error("Не удалось загрузить курсы: ${e.message}")
             }
@@ -49,31 +49,26 @@ class CoursesViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 toggleFavoriteUseCase(course)
-                // Обновляем локальный список
-                allCourses = allCourses.map { courseItem ->
-                    if (courseItem.id == course.id) {
-                        courseItem.copy(isFavorite = !courseItem.isFavorite)
-                    } else {
-                        courseItem
-                    }
-                }
-                updateCoursesState()
             } catch (e: Exception) {
-                // Можно показать ошибку
+                _state.value = CoursesState.Error("Не удалось обновить избранное: ${e.message}")
             }
         }
     }
 
     fun toggleSorting() {
         isSortedByPublishDate = !isSortedByPublishDate
-        updateCoursesState()
+        val currentCourses = when (val currentState = _state.value) {
+            is CoursesState.Success -> currentState.courses
+            else -> emptyList()
+        }
+        updateCoursesState(currentCourses)
     }
 
-    private fun updateCoursesState() {
+    private fun updateCoursesState(courses: List<Course>) {
         val coursesToShow = if (isSortedByPublishDate) {
-            sortCoursesUseCase(allCourses, true)
+            sortCoursesUseCase(courses, true)
         } else {
-            allCourses
+            courses
         }
 
         _state.update {
@@ -88,10 +83,4 @@ class CoursesViewModel @Inject constructor(
         }
     }
 
-    fun getCurrentCourses(): List<Course> {
-        return when (val currentState = _state.value) {
-            is CoursesState.Success -> currentState.courses
-            else -> emptyList()
-        }
-    }
 }

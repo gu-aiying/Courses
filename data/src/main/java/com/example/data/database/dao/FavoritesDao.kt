@@ -11,6 +11,9 @@ interface FavoritesDao {
     @Query("SELECT * FROM favorite_courses")
     fun getAllFavorites(): Flow<List<FavoriteCourseEntity>>
 
+    @Query("SELECT courseId FROM favorite_courses")
+    fun getAllFavoritesID(): Flow<List<Long>>
+
     @Insert
     suspend fun addToFavorites(favorite: FavoriteCourseEntity)
 

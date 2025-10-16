@@ -4,14 +4,14 @@
 
 Используется стек технологий: 
 Android:
-Kotlin
-Retrofit.
-Корутины
-Flow
-Dagger Hilt
-MVVM
-AdapterDelegates
-Верстка обычная на XML
-Clean Architecture
-Многомодульность 
-Room
+Kotlin,
+Retrofit,
+Корутины,
+Flow,
+Dagger Hilt,
+MVVM,
+AdapterDelegates,
+Верстка обычная на XML,
+Clean Architecture,
+Многомодульность,
+Room.

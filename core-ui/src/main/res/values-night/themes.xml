@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.Courses" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Основные цвета -->
@@ -12,7 +12,7 @@
         <!-- Фоны и поверхности -->
         <item name="android:windowBackground">@color/dark_background</item>
         <item name="colorSurfaceContainer">@color/dark_surface</item>
-        <item name="colorSurface">@color/dark_surface</item>
+        <item name="colorSurface">@color/menu_gray</item>
         <item name="colorSurfaceVariant">@color/dark_surface</item>
         <item name="boxBackgroundColor">@color/dark_surface</item>
 
